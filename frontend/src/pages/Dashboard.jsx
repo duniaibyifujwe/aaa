@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getParkingSlots } from '../api/parkingApi';
+import NavBar from '../components/NavBar';
 
 function Dashboard() {
   const [slots, setSlots] = useState([]);
@@ -32,11 +33,14 @@ function Dashboard() {
 
   // Simple visual representation
   return (
+    <>
+    <NavBar/>
+
     <div className="dashboard-container">
       <h3>Slot Overview:</h3>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
         {slots.length === 0 ? (
-          <p>No parking slots configured yet. Please configure slots via API.</p>
+            <p>No parking slots configured yet. Please configure slots via API.</p>
         ) : (
           slots.map(slot => (
             <div
@@ -48,7 +52,7 @@ function Dashboard() {
                 backgroundColor: slot.slotStatus === 'available' ? '#e6ffe6' : '#ffe6e6',
                 borderRadius: '5px'
               }}
-            >
+              >
               <strong>{slot.slotNo}</strong>
               <p>{slot.slotStatus.toUpperCase()}</p>
             </div>
@@ -56,6 +60,7 @@ function Dashboard() {
         )}
       </div>
     </div>
+        </>
   );
 }
 

@@ -18,6 +18,10 @@ export const updateParkingSlot = (id, status) => parkingApi.put(`/slots/${id}`, 
 
 // --- Car Management (Optional for frontend, as entry handles registration) ---
 export const getCarByPlateNo = (plateNo) => parkingApi.get(`/cars/${plateNo}`);
+export const registerCar = (carData) => carApi.post('/', carData); // CREATE
+export const getCars = () => carApi.get('/'); // READ
+export const updateCar = (id, carData) => carApi.put(`/${id}`, carData); // UPDATE
+export const deleteCar = (id) => carApi.delete(`/${id}`);
 
 // --- Parking Entry/Exit ---
 export const recordEntry = (carDetails) => parkingApi.post('/parkin/entry', carDetails);

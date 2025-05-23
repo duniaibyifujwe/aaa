@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { recordPayment, getParkingHistory } from '../api/parkingApi'; // Import getParkingHistory
+import NavBar from '../components/NavBar';
 
 function PaymentForm() {
   const [unpaidRecords, setUnpaidRecords] = useState([]);
@@ -63,6 +64,9 @@ function PaymentForm() {
   };
 
   return (
+    <>
+    <NavBar/>
+
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="parkingRecordSelect">Select Parking Record (Unpaid):</label>
@@ -96,12 +100,13 @@ function PaymentForm() {
           onChange={(e) => setAmountPaid(e.target.value)}
           required
           min="0" // Ensure positive amount
-        />
+          />
       </div>
       <button type="submit" disabled={loadingRecords || unpaidRecords.length === 0}>Record Payment</button>
       {message && <p style={{ color: 'green' }}>{message}</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </form>
+          </>
   );
 }
 

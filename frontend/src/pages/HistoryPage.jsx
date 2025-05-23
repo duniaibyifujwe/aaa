@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getParkingHistory } from '../api/parkingApi';
+import NavBar from '../components/NavBar';
 
 function HistoryPage() {
   const [history, setHistory] = useState([]);
@@ -34,6 +35,8 @@ function HistoryPage() {
 
   return (
     <div>
+    <NavBar/>
+
       <div>
         {/* <label>Filter by Plate No:</label> */}
         {/* <input

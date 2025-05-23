@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { createParkingSlots } from '../api/parkingApi';
+import NavBar from '../components/NavBar';
 
 function CreateSlotsForm() {
   const [slotNumbersInput, setSlotNumbersInput] = useState(''); // e.g., "A1, A2, B1, B2"
@@ -46,6 +47,8 @@ function CreateSlotsForm() {
   };
 
   return (
+    <>
+    <NavBar/>
     <div className="create-slots-container">
       <h3>Configure Parking Slots</h3>
       <form onSubmit={handleSubmit}>
@@ -58,7 +61,7 @@ function CreateSlotsForm() {
             onChange={(e) => setSlotNumbersInput(e.target.value)}
             placeholder="e.g., A1, A2, B1, C5"
             required
-          />
+            />
         </div>
         <button type="submit" disabled={loading}>
           {loading ? 'Creating...' : 'Create Slots'}
@@ -70,6 +73,7 @@ function CreateSlotsForm() {
         * Only create slots once or when you need to add more. Existing slots with the same number will be ignored by the backend.
       </p>
     </div>
+            </>
   );
 }
 

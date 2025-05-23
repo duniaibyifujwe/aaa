@@ -13,6 +13,9 @@ import ExitForm from './pages/ExitForm';
 import PaymentForm from './pages/PaymentForm';
 import HistoryPage from './pages/HistoryPage';
 import CreateSlotsForm from './pages/CreateSlotsForm';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import Logout from './pages/Logout';
 
 // For routing, you'd typically install `react-router-dom`
 // npm install react-router-dom
@@ -28,18 +31,13 @@ function App() {
       
           {/* With react-router-dom, this would be: */}
           <BrowserRouter>
-        <nav>
-          {/* You'd use <Link> components here with react-router-dom */}
-          <Link to="/"> Dashboard </Link> 
-          <Link to="entry"> Park Car </Link> 
-          <Link to="exit"> Exit Car </Link> 
-          <Link to="payment"> Process Payment </Link> 
-          <Link to="history"> Parking History </Link> 
-          <Link to="create-slots"> Create Slots </Link> 
-        </nav>
+        
           
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/entry" element={<EntryForm />} />
             <Route path="/exit" element={<ExitForm />} />
             <Route path="/payment" element={<PaymentForm />} />

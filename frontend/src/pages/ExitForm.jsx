@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { recordExit } from '../api/parkingApi';
+import NavBar from '../components/NavBar';
 
 function ExitForm() {
   const [plateNo, setPlateNo] = useState('');
@@ -26,6 +27,8 @@ function ExitForm() {
 
   return (
     <div>
+    <NavBar/>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label>Plate No to Exit:</label>

@@ -26,7 +26,7 @@ function LoginPage({ onLogin }) { // onLogin prop to update App.js state
       localStorage.setItem('user', JSON.stringify(user));
 
       setMessage('Login successful! Redirecting to dashboard...');
-      onLogin(user, token); // Update parent (App.js) state
+    //   onLogin(user, token); // Update parent (App.js) state
       setTimeout(() => {
         navigate('/'); // Redirect to dashboard or desired page
       }, 1000);

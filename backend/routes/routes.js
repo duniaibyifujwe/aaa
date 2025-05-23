@@ -19,6 +19,16 @@ router.get('/api/cars', carController.getAllCars);
 router.get('/api/cars/:plateNo', carController.getCarByPlateNo);
 router.post('/api/cars', carController.registerCar);
 
+
+// Get car by plate number
+router.delete('/api/cars/:id',  carController.deleteCar);
+router.put('/api/cars/:id',carController.updateCar); // Update a car by ID
+
+
+
+
+
+
 // --- Parking Entry/Exit Routes ---
 router.post('/api/parkin/entry', parkingController.recordEntry);
 router.post('/api/parkin/exit', parkingController.recordExit);
